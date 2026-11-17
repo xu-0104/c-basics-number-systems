@@ -1,0 +1,34 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "C: 編譯目前檔案",
+            "type": "process",
+            "command": "C:/msys64/ucrt64/bin/gcc.exe",
+            "args": [
+                "-g",
+                "-Wall",
+                "-Wextra",
+                "-std=c17",
+                "${fileBasename}",
+                "-o",
+                "${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}",
+                "env": { "PATH": "C:/msys64/ucrt64/bin;${env:PATH}" }
+            },
+            "problemMatcher": ["$gcc"],
+            "group": { "kind": "build", "isDefault": true }
+        },
+        {
+            "label": "C: 編譯並執行目前檔案",
+            "type": "shell",
+            "command": "& './${fileBasenameNoExtension}.exe'",
+            "options": { "cwd": "${fileDirname}" },
+            "dependsOn": "C: 編譯目前檔案",
+            "problemMatcher": [],
+            "presentation": { "focus": true }
+        }
+    ]
+}
