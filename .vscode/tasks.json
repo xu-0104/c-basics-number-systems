@@ -24,7 +24,7 @@
         {
             "label": "C: 編譯並執行目前檔案",
             "type": "shell",
-            "command": "& './${fileBasenameNoExtension}.exe'",
+            "command": "[Console]::OutputEncoding = [System.Text.Encoding]::UTF8; [Console]::InputEncoding = [System.Text.Encoding]::UTF8; & './${fileBasenameNoExtension}.exe'",
             "options": { "cwd": "${fileDirname}" },
             "dependsOn": "C: 編譯目前檔案",
             "problemMatcher": [],
