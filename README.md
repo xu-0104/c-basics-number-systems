@@ -11,7 +11,7 @@
 | 2 | 第一支 C 程式、變數、型別、`printf`、`sizeof` | [notes/02-first-c-program.md](notes/02-first-c-program.md)、`exercises/02_*.c` | ⬜ |
 | 3 | `if` / `for` / `while`：印三角形、菱形 | [notes/03-control-flow.md](notes/03-control-flow.md)、`exercises/03_*.c` | ⬜ |
 | 4 | 函式：費氏數列（迴圈版 + 遞迴版） | [notes/04-functions.md](notes/04-functions.md)、`exercises/04_*.c` | ⬜ |
-| 5 | 陣列與字串（字元陣列） | `exercises/05_*.c` | ⬜ |
+| 5 | 陣列與字串（字元陣列） | [notes/05-arrays-strings.md](notes/05-arrays-strings.md)、`exercises/05_*.c` | ⬜ |
 | 6 | **期末作品：`baseconv` 進位轉換工具** | `baseconv/` | ⬜ |
 
 ## 編譯方式
