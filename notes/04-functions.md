@@ -130,10 +130,13 @@ void f(void)
 ### 遞迴版：幾乎是把數學定義照抄
 
 ```c
-int fib_rec(int n)
-{
-    if (n < 2) return n;                       // 終止條件：F(0)=0、F(1)=1
+int fib_rec(int n){
+
+    if (n < 2) 
+        return n;                       // 終止條件：F(0)=0、F(1)=1
+
     return fib_rec(n - 1) + fib_rec(n - 2);    // 遞迴呼叫
+
 }
 ```
 
@@ -245,7 +248,10 @@ int hex_digit_value(char c);
 
 ### 我的答案
 
-1.
+1.因為 C 是 call by value：呼叫函式時，x、y 的值會被複製一份給參數 a、b。swap 交換的是影本，main 的原件沒被動到。要改到原件，就要傳地址，就像 scanf 要寫 &x 一樣。
 2.
-3.
-4.
+① 終止條件：問題小到可以直接回答，就不再呼叫自己。費氏數列的終止條件是 if (n < 2) return n;。
+② 遞迴呼叫：呼叫自己去處理更小的問題，每次都往終止條件靠近一步。
+少了終止條件，函式會無限呼叫自己，直到記憶體（stack）用完，程式當掉，這叫 stack overflow。
+3.因為同樣的值被重複計算很多次。例如 fib(5) 會算 fib(3) 兩次，越往下重複越多。呼叫次數大約是指數成長，時間複雜度 O(2ⁿ)：fib(40) 要呼叫約 3.3 億次，實測花了 1 秒多。迴圈版只記住前兩個數往前推，時間複雜度 O(n)，實測幾乎是 0 秒。
+4.就是只寫函式的第一行再加分號，例如 int fib_rec(int n);，先告訴編譯器「有這個函式，它的參數和回傳型別長這樣」。因為編譯器從上往下讀，如果函式定義寫在 main 下面，就要先在最上面宣告，不然 gcc 會報錯 implicit declaration of function。#include <stdio.h> 引入的，其實就是 printf、scanf 這些函式的宣告。
